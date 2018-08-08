@@ -16,7 +16,7 @@ services:
     volumes:
     - redis_data:/data
   www:
-    image: iget/default-www:previous
+    image: iget/magento-www:latest
     depends_on:
     - mysql
     - redis
