@@ -1,5 +1,11 @@
 FROM ubuntu:16.04
 
+# Recreate www-data user with UID 1000. This will avoid permission
+# conflicts between host user and www-data accessing the same files.
+#
+# Note: The UID is the default UID for ubuntu installations. Other
+#       distributions may use another UID.
+RUN deluser www-data && useradd -ms /bin/bash -u 1000 -U www-data
 
 # Define default answers for debconf and set
 # debian frontend to noninteractive mode.
