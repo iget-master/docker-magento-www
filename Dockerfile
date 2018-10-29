@@ -43,6 +43,8 @@ RUN apt -y update && apt install -y --no-install-recommends \
     nodejs \
     supervisor \
     wget \
+    # bzip2 needed to install npm dependencies inside the container
+    bzip2 \
     && rm -rf /var/lib/apt/lists/* && echo 'Packages installed and lists cleaned'
 
 RUN /scripts/setup-composer.sh && mv composer.phar /usr/bin/composer && composer global require hirak/prestissimo
