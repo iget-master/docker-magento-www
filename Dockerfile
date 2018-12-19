@@ -43,6 +43,8 @@ RUN apt -y update && apt install -y --no-install-recommends \
     nodejs \
     supervisor \
     wget \
+    # zip needed to install composer depencencies inside the container
+    zip \
     # bzip2 needed to install npm dependencies inside the container
     bzip2 \
     && rm -rf /var/lib/apt/lists/* && echo 'Packages installed and lists cleaned'
