@@ -47,6 +47,8 @@ RUN apt -y update && apt install -y --no-install-recommends \
     zip \
     # bzip2 needed to install npm dependencies inside the container
     bzip2 \
+    # msmtp-mta needed to send emails using smtp inside the container
+    msmtp-mta \
     && rm -rf /var/lib/apt/lists/* && echo 'Packages installed and lists cleaned'
 
 RUN /scripts/setup-composer.sh && mv composer.phar /usr/bin/composer && composer global require hirak/prestissimo
