@@ -39,6 +39,7 @@ RUN apt -y update && apt install -y --no-install-recommends \
     php7.1-mcrypt \
     php7.1-intl \
     php7.1-bcmath \
+    php7.1-xdebug \
     mysql-client-5.7 \
     nodejs \
     supervisor \
