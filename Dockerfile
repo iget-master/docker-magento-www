@@ -77,6 +77,11 @@ RUN mkdir /var/run/php
 # Expose HTTP port
 EXPOSE 80
 
+# Add Magento cronjob
+RUN echo "* * * * * php /var/www/bin/magento cron:run | grep -v "Ran jobs by schedule" >> /var/www/var/log/magento.cron.log" | crontab -u www-data -
+RUN echo "* * * * * php /var/www/update/cron.php >> /var/www/var/log/update.cron.log" | crontab -u www-data -
+RUN echo "* * * * * php /var/www/bin/magento setup:cron:run >> /var/www/var/log/setup.cron.log" | crontab -u www-data -
+
 WORKDIR /var/www
 
 CMD ["/scripts/run.sh"]
