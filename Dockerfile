@@ -44,8 +44,9 @@ RUN apt -y update && apt install -y --no-install-recommends \
     nodejs \
     supervisor \
     wget \
-    # zip needed to install composer depencencies inside the container
+    # zip/unzip needed to install composer depencencies inside the container
     zip \
+    unzip \
     # bzip2 needed to install npm dependencies inside the container
     bzip2 \
     # msmtp-mta needed to send emails using smtp inside the container
